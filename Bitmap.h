@@ -7,7 +7,7 @@ class Bitmap
 private:
 	int _width{ 0 };
 	int _height{ 0 };
-	int* _pixels_p{ nullptr };
+	uint8_t *_pixels_p{ nullptr };
 
 public:
 	Bitmap(int width, int height);

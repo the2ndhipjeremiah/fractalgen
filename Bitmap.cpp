@@ -4,7 +4,7 @@
 
 Bitmap::Bitmap(int width, int height) : _width(width), _height(height)
 {
-	_pixels_p = new int[pixel_count_rgb()]{ 0 };
+	_pixels_p = new uint8_t[pixel_count_rgb()]{ 0 };
 	if (!_pixels_p)
 		std::cout << "allocating _pixels_p failed" << std::endl;
 }
@@ -40,5 +40,11 @@ bool Bitmap::write(std::string filename)
 
 void Bitmap::set_pixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue)
 {
+	uint8_t *pixel_p = _pixels_p;
+
+	pixel_p += (y * 3 * _width) + (x * 3);
+	pixel_p[0] = blue;
+	pixel_p[1] = green;
+	pixel_p[2] = red;
 }
 
