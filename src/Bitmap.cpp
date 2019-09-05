@@ -43,6 +43,7 @@ void Bitmap::set_pixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue)
 	uint8_t *pixel_p = _pixels_p;
 
 	pixel_p += (y * 3 * _width) + (x * 3);
+
 	pixel_p[0] = blue;
 	pixel_p[1] = green;
 	pixel_p[2] = red;
