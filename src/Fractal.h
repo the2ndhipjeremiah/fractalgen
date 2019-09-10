@@ -8,8 +8,8 @@
 class Fractal
 {
 private:
-	int _width{800};
-	int _height{600};
+	int _width{ 800 };
+	int _height{ 600 };
 	int _max_iterations{ 1000 };
 	int* _histogram{ nullptr };
 	int* _cumulative_histogram{ nullptr };

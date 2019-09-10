@@ -8,10 +8,10 @@ int Mandelbrot::get_iterations(double x, double y, int max_iterations)
 
 	int iterations{ 0 };
 
-	while (iterations < max_iterations) 
+	while (iterations < max_iterations)
 	{
 		z = z * z + c;
-		if (std::norm(z) > 2) 
+		if (std::norm(z) > 2)
 		{
 			break;
 		}

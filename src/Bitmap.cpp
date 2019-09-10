@@ -9,7 +9,7 @@ Bitmap::Bitmap(int width, int height) : _width(width), _height(height)
 		std::cout << "allocating _pixels_p failed" << std::endl;
 }
 
-Bitmap::~Bitmap() 
+Bitmap::~Bitmap()
 {
 	delete[] _pixels_p;
 }
@@ -19,13 +19,16 @@ bool Bitmap::write(std::string filename)
 	BitmapFileHeader file_header;
 	BitmapInfoHeader info_header;
 
-	file_header.file_size = sizeof(BitmapFileHeader) + sizeof(BitmapInfoHeader) + pixel_count_rgb();
-	file_header.data_offset = sizeof(BitmapFileHeader) + sizeof(BitmapInfoHeader);
+	file_header.file_size = 
+		sizeof(BitmapFileHeader) + sizeof(BitmapInfoHeader) + pixel_count_rgb();
+
+	file_header.data_offset = 
+		sizeof(BitmapFileHeader) + sizeof(BitmapInfoHeader);
 
 	info_header.width = _width;
 	info_header.height = _height;
 
-	std::fstream fs(filename, std::ios::out|std::ios::binary);
+	std::fstream fs(filename, std::ios::out | std::ios::binary);
 	if (!fs)
 		return false;
 
@@ -40,7 +43,7 @@ bool Bitmap::write(std::string filename)
 
 void Bitmap::set_pixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue)
 {
-	uint8_t *pixel_p = _pixels_p;
+	uint8_t* pixel_p = _pixels_p;
 
 	pixel_p += (y * 3 * _width) + (x * 3);
 
